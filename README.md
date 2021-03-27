@@ -2,6 +2,10 @@
 ### Dataflow Pipeline
 ![](pipeline.JPG)
 
+### Summary
+
+This project is created to predict Earthquake magnitude using Longitude, Latitude and Depth values on streaming data. 
+
 ### Task List
 
 - [x] Set-up MongoDB account or install locally
