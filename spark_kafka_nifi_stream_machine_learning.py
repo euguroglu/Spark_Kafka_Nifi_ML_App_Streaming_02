@@ -100,8 +100,10 @@ explode_df = value_df.selectExpr("value.Latitude","value.Longitude", "value.Dept
 explode_df.printSchema()
 #Make prediction
 pred_results_stream = model.transform(explode_df)
+#Remove feature column
+pred_results_stream_simplified = pred_results_stream.selectExpr("Latitude", "Longitude", "Depth", "prediction")
 #Sink result to console
-window_query = pred_results_stream.writeStream \
+window_query = pred_results_stream_simplified.writeStream \
      .format("console") \
      .outputMode("append") \
      .trigger(processingTime="10 seconds") \
